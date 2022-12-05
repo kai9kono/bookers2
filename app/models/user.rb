@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
 
-  validates :name, length: {minimum: 2, maximum: 20}
+  validates :name, length: {minimum: 2, maximum: 20}, uniqueness: {:message => "Username already exisits. Please select a different one."}
   validates :introduction, length: {maximum: 50}
 
   has_one_attached :profile_image
